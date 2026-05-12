@@ -5,25 +5,42 @@
   "parts": [
     {
       "type": "board-esp32-devkit-c-v4",
-      "id": "master",
-      "top": -105.6,
-      "left": -91.16,
+      "id": "esp32",
+      "top": 19.2,
+      "left": -52.76,
       "attrs": { "firmware": ".pio/build/master/firmware.bin", "elf": ".pio/build/master/firmware.elf" }
     },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -143.7, "left": 167.4, "attrs": {} },
     {
-      "type": "board-esp32-devkit-c-v4",
-      "id": "slave",
-      "top": -57.6,
-      "left": 206.44,
-      "attrs": { "firmware": ".pio/build/slave/firmware.bin", "elf": ".pio/build/slave/firmware.elf" }
-    }
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 22.4,
+      "left": -373.6,
+      "attrs": {}
+    },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": -112.5, "left": -300.2, "attrs": {} },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": 1.5, "left": 283.9, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -145.3, "left": 9.4, "attrs": {} }
   ],
   "connections": [
-    [ "master:TX", "$serialMonitor:RX", "", [] ],
-    [ "master:RX", "$serialMonitor:TX", "", [] ],
-    [ "master:GND.1", "slave:GND.1", "black", [ "h-38.25", "v76.8", "h259.2", "v-28.8" ] ],
-    [ "master:17", "slave:16", "green", [ "h28.8", "v-124.8", "h345.6", "v182.4" ] ],
-    [ "master:16", "slave:17", "blue", [ "h57.6", "v-105.6", "h288", "v144" ] ]
+    [ "esp32:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp32:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:VCC", "esp32:3V3", "red", [ "v28.8", "h-230.55" ] ],
+    [ "dht1:GND", "esp32:GND.2", "black", [ "v0" ] ],
+    [ "dht1:SDA", "esp32:4", "green", [ "v0" ] ],
+    [ "ldr1:VCC", "esp32:3V3", "red", [ "h0" ] ],
+    [ "ldr1:AO", "esp32:34", "green", [ "h48", "v56.9" ] ],
+    [ "gas1:VCC", "esp32:5V", "red", [ "h28.8", "v325.5" ] ],
+    [ "gas1:AOUT", "esp32:35", "green", [ "h48", "v230.4" ] ],
+    [ "ldr1:GND", "esp32:GND.1", "black", [ "h115.2", "v124.4" ] ],
+    [ "gas1:GND", "esp32:GND.1", "black", [ "h76.8", "v248.8" ] ],
+    [ "ultrasonic1:GND", "esp32:GND.2", "black", [ "v57.6", "h-241.2", "v-105.6" ] ],
+    [ "ultrasonic1:VCC", "esp32:5V", "red", [ "v163.2", "h-403.35" ] ],
+    [ "ultrasonic1:TRIG", "esp32:5", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp32:18", "green", [ "v0" ] ],
+    [ "pot1:VCC", "esp32:3V3", "red", [ "v57.6", "h-106.55" ] ],
+    [ "pot1:GND", "esp32:GND.1", "black", [ "h-124.8", "v249.6" ] ],
+    [ "pot1:SIG", "esp32:32", "green", [ "h-125.2", "v182.4" ] ]
   ],
   "dependencies": {}
 }
