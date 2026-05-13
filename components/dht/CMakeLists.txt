@@ -10,5 +10,11 @@
 #    REQUIRES ${req}
 #)
 
-idf_component_register(SRCS "dht.c"
-                    INCLUDE_DIRS ".")
+#idf_component_register(SRCS "dht.c"
+#                    INCLUDE_DIRS ".")
+
+idf_component_register(
+    SRCS "dht.c"
+    INCLUDE_DIRS "."
+    REQUIRES driver
+)

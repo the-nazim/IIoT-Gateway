@@ -1174,3 +1174,10 @@
 /home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/main/CMakeFiles/install.dir
 /home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/main/CMakeFiles/install/local.dir
 /home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/main/CMakeFiles/install/strip.dir
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/dht/CMakeFiles/__idf_dht.dir
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/dht/CMakeFiles/edit_cache.dir
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/dht/CMakeFiles/rebuild_cache.dir
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/dht/CMakeFiles/list_install_components.dir
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/dht/CMakeFiles/install.dir
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/dht/CMakeFiles/install/local.dir
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/dht/CMakeFiles/install/strip.dir

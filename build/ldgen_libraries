@@ -200,3 +200,5 @@
 /home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/rt/librt.a
 /home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/spiffs/libspiffs.a
 /home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/main/libmain.a
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/dht/libdht.a
+/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/esp-idf/driver/libdriver.a
