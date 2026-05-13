@@ -13,18 +13,15 @@
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 #include "esp_timer.h"
-
-
-
-// Wi-Fi credentials
-#define WIFI_SSID "JOMA"
-#define WIFI_PASS "Mansionhouse@960"
+#include "dht.h" // Include the DHT22 sensor library header
 
 // MQTT broker URI
 #define MQTT_BROKER_URI "mqtt://broker.hivemq.com:1883"
 
-// Sensor GPIO and ADC configurations
-#define DHT22_GPIO GPIO_NUM_4
+extern const char *TAG;
+extern esp_mqtt_client_handle_t mqtt_client;
+extern uint16_t holdingRegisters[10]; // Modbus holding registers
+
 #define LDR_ADC_CHANNEL ADC1_CHANNEL_6 // GPIO34
 #define POT_ADC_CHANNEL ADC1_CHANNEL_4 // GPIO32
 #define ULTRASONIC_TRIG GPIO_NUM_5

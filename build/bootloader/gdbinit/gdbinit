@@ -1,0 +1,2 @@
+source /home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/bootloader/gdbinit/symbols
+source /home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/bootloader/gdbinit/connect

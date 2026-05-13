@@ -1,0 +1,7 @@
+-Wno-frame-address
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
+"-specs=/home/nazim/new_volume/Projects/IIoT-Gateway/master-node/build/specs/picolibc.specs"
+-fno-rtti
