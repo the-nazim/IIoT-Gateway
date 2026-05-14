@@ -7,10 +7,10 @@
 #include "freertos/task.h"
 
 
-#include "esp_wifi.h"
+// #include "esp_wifi.h"
 #include "esp_event.h"
 #include "nvs_flash.h"
-#include "mqtt_client.h"
+// #include "mqtt_client.h"
 #include "esp_log.h"
 #include "driver/gpio.h"
 #include "driver/adc.h"
