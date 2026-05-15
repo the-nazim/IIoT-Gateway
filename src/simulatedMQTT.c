@@ -15,5 +15,11 @@ void simulated_mqtt_publish(void) {
     printf("Topic: factory/potentiometer\n");
     printf("Payload: %d\n\n", holdingRegisters[3]);
 
+    printf("Topic: factory/gas\n");
+    printf("Payload: %d\n\n", holdingRegisters[4]);
+
+    printf("Topic: factory/ultrasonic\n");
+    printf("Payload: %d\n\n", holdingRegisters[5]);
+
     printf("=====================================\n");
 }

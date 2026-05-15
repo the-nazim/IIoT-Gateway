@@ -21,7 +21,7 @@
 // MQTT broker URI
 // #define MQTT_BROKER_URI "mqtt://broker.hivemq.com:1883"
 
-extern const char *TAG;
+// extern const char *TAG;
 // extern esp_mqtt_client_handle_t mqtt_client;
 extern uint16_t holdingRegisters[10]; // Modbus holding registers
 
@@ -30,6 +30,7 @@ extern uint16_t holdingRegisters[10]; // Modbus holding registers
 #define ULTRASONIC_TRIG GPIO_NUM_5
 #define ULTRASONIC_ECHO GPIO_NUM_18
 #define DHT22_PIN GPIO_NUM_4
+#define GAS_SENSOR_ADC_CHANNEL ADC1_CHANNEL_7 // GPIO35
 
 typedef struct {
     float temperature;
@@ -38,8 +39,12 @@ typedef struct {
 
 // Function prototypes
 void adc_init_custom(void);
+void ultrasonic_init(void);
+void gas_sensor_init(void);
 int read_ldr(void);
 int read_pot(void);
+int read_gas_sensor(void);
+float read_ultrasonic(void);
 void read_dht(dht_data *sensorData);
 void simulated_mqtt_publish(void);
 void sensorTask(void *pvParameters);
