@@ -19,10 +19,10 @@
 #include "dht.h" // Include the DHT22 sensor library header
 
 // MQTT broker URI
-#define MQTT_BROKER_URI "mqtt://broker.hivemq.com:1883"
+// #define MQTT_BROKER_URI "mqtt://broker.hivemq.com:1883"
 
 extern const char *TAG;
-extern esp_mqtt_client_handle_t mqtt_client;
+// extern esp_mqtt_client_handle_t mqtt_client;
 extern uint16_t holdingRegisters[10]; // Modbus holding registers
 
 #define LDR_ADC_CHANNEL ADC1_CHANNEL_6 // GPIO34
@@ -30,10 +30,6 @@ extern uint16_t holdingRegisters[10]; // Modbus holding registers
 #define ULTRASONIC_TRIG GPIO_NUM_5
 #define ULTRASONIC_ECHO GPIO_NUM_18
 #define DHT22_PIN GPIO_NUM_4
-
-extern const char *TAG = "IIOT_GATEWAY";
-extern esp_mqtt_client_handle_t mqtt_client;
-extern uint16_t holdingRegisters[10]; // Modbus holding registers
 
 typedef struct {
     float temperature;

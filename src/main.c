@@ -1,5 +1,8 @@
 #include "main.h"
 
+const char *TAG = "IIOT_GATEWAY";
+uint16_t holdingRegisters[10] = {0};
+
 void app_main(void)
 {
     ESP_LOGI(TAG, "Starting IIoT Gateway...");

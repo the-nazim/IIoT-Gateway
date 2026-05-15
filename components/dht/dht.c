@@ -43,8 +43,11 @@
 #include <freertos/FreeRTOS.h>
 #include <string.h>
 #include <esp_log.h>
-#include <ets_sys.h>
-#include <esp_idf_lib_helpers.h>
+#include <sdkconfig.h>
+// #include <ets_sys.h>
+// #include <esp_idf_lib_helpers.h>
+
+#include "esp_rom_sys.h"
 
 // DHT timer precision in microseconds
 #define DHT_TIMER_INTERVAL 2
@@ -81,12 +84,12 @@
 
 static const char *TAG = "dht";
 
-#if HELPER_TARGET_IS_ESP32
+#if CONFIG_IDF_TARGET_ESP32
 static portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
 #define PORT_ENTER_CRITICAL() portENTER_CRITICAL(&mux)
 #define PORT_EXIT_CRITICAL() portEXIT_CRITICAL(&mux)
 
-#elif HELPER_TARGET_IS_ESP8266
+#elif CONFIG_IDF_TARGET_ESP8266
 #define PORT_ENTER_CRITICAL() portENTER_CRITICAL()
 #define PORT_EXIT_CRITICAL() portEXIT_CRITICAL()
 #endif
@@ -120,7 +123,7 @@ static esp_err_t dht_await_pin_state(gpio_num_t pin, uint32_t timeout,
     for (uint32_t i = 0; i < timeout; i += DHT_TIMER_INTERVAL)
     {
         // need to wait at least a single interval to prevent reading a jitter
-        ets_delay_us(DHT_TIMER_INTERVAL);
+        esp_rom_delay_us(DHT_TIMER_INTERVAL);
         if (gpio_get_level(pin) == expected_pin_state)
         {
             if (duration)
@@ -145,7 +148,7 @@ static inline esp_err_t dht_fetch_data(dht_sensor_type_t sensor_type, gpio_num_t
     // Phase 'A' pulling signal low to initiate read sequence
     gpio_set_direction(pin, GPIO_MODE_OUTPUT_OD);
     gpio_set_level(pin, 0);
-    ets_delay_us(sensor_type == DHT_TYPE_SI7021 ? 500 : 20000);
+    esp_rom_delay_us(sensor_type == DHT_TYPE_SI7021 ? 500 : 20000);
     gpio_set_level(pin, 1);
 
     // Step through Phase 'B', 40us
